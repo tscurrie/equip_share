@@ -18,10 +18,11 @@ Rails.application.routes.draw do
   get '/users/:id/items', to: 'items#user_items', as: 'user_items'
   get '/users/:id/items/new', to: 'items#new', as: 'add_item'
   post '/items', to: 'items#create'
+  get '/users/:id/items/:id', to: 'items#user_item_show', as: 'user_item_show'
   get '/items/:id', to: 'items#show', as: 'item'
   get '/users/:id/items/:id/edit', to: 'items#edit', as: 'edit_item'
-  patch '/users/:id/items/:id', to: 'items#update'
+  patch '/items/:id', to: 'items#update'
   delete '/items/:id', to: 'items#destroy'
 
-
+  get '/items/:id/request', to: 'requests#new', as: 'new_request'
 end

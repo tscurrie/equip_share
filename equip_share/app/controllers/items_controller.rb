@@ -24,7 +24,8 @@ class ItemsController < ApplicationController
 	
 	def create
 		
-		item_params = params.require(:item).permit(:name, :description, :user_id[@user])
+		item_params = params.require(:item).permit(:name, :description)
+		item_params[:user_id] = current_user.id
 		item = Item.new(item_params)
 
 		if item.save
@@ -48,16 +49,20 @@ class ItemsController < ApplicationController
 		item = Item.find_by_id(item_id)
 		item_params = params.require(:item).permit(:name, :description)
 		item.update_attributes(item_params)
-		redirect_to item_path(item)
+		redirect_to user_items_path
+
 	end
 
-	# def destroy
-	# 	item_id = params[:id]
-	# 	item = Item.find_by_id(item_id)
-	# 	item.destroy
+	def destroy
+		@item = Item.find_by_id(params[:id])
+		@item.destroy
 
-	# 	redirect_to user_items_path
-	# end
+		redirect_to user_items_path
+	end
+
+	def user_item_show
+
+	end
 
 
 
