@@ -15,11 +15,12 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
 
   get '/items', to: 'items#index', as: 'items'
-  get '/items/new', to: 'items#new'
+  get '/users/:id/items', to: 'items#user_items', as: 'user_items'
+  get '/users/:id/items/new', to: 'items#new'
   post '/items', to: 'items#create'
   get '/items/:id', to: 'items#show', as: 'item'
-  get 'items/:id/edit', to: 'items#edit', as: 'edit_item'
-  patch '/items/:id', to: 'items#update'
+  get '/users/:id/items/:id/edit', to: 'items#edit', as: 'edit_item'
+  patch '/users/:id/items/:id', to: 'items#update'
 
 
 end

@@ -1,0 +1,10 @@
+does this work
+<% @items.each do |item|%>
+	
+
+	<div>
+	  <h3><%= link_to item.name, item_path(item) %></h3>
+	</div>
+	<br>
+
+<% end %>

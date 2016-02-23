@@ -1,6 +1,17 @@
 class ItemsController < ApplicationController
+	
+
 	def index
 		@items = Item.all
+	end
+
+	def user_items
+		
+		if current_user.id.to_s == params[:id]
+			@items = current_user.items
+		else 
+			redirect_to items_path
+		end
 	end
 	
 	def new

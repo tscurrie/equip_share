@@ -14,7 +14,9 @@ class UsersController < ApplicationController
 		@user = User.create(user_params)
 		login(@user)
 
-		redirect_to @user
+		if User.save
+			redirect_to @user
+		end
 	end
 
 	def show
