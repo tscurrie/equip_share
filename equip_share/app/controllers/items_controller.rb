@@ -45,7 +45,7 @@ class ItemsController < ApplicationController
 	def update
 		@item = Item.find_by_id(params[:id])
 		item_params = params.require(:item).permit(:name, :description)
-		item.update_attributes(item_params)
+		@item.update_attributes(item_params)
 		redirect_to user_items_path
 
 	end
