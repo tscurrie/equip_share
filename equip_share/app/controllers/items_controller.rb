@@ -23,7 +23,8 @@ class ItemsController < ApplicationController
 	end
 	
 	def create
-		item_params = params.require(:item).permit(:name, :description, :user_id)
+		
+		item_params = params.require(:item).permit(:name, :description, :user_id[@user])
 		item = Item.new(item_params)
 
 		if item.save
