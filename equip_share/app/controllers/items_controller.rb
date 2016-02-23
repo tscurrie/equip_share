@@ -15,15 +15,19 @@ class ItemsController < ApplicationController
 	end
 	
 	def new
-		@item = Item.new
+		if current_user.id.to_s == params[:id]
+			@item = Item.new
+		else
+			redirect_to items_path
+		end	
 	end
 	
 	def create
-		item_params = params.require(:item).permit(:name, :description)
+		item_params = params.require(:item).permit(:name, :description, :user_id)
 		item = Item.new(item_params)
 
 		if item.save
-			redirect_to item_path(item)
+			redirect_to user_items_path(item)
 		end
 	end
 
@@ -45,6 +49,14 @@ class ItemsController < ApplicationController
 		item.update_attributes(item_params)
 		redirect_to item_path(item)
 	end
+
+	# def destroy
+	# 	item_id = params[:id]
+	# 	item = Item.find_by_id(item_id)
+	# 	item.destroy
+
+	# 	redirect_to user_items_path
+	# end
 
 
 
