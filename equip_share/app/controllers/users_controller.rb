@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	# skip_before_action :logged_in?, only: [:create, :new]
+
 	def index
 		@users = User.all
 		render :index
@@ -12,8 +14,9 @@ class UsersController < ApplicationController
 	def create
 	user_params = params.require(:user).permit(:first_name, :last_name, :email, :password)
 	   @user = User.create(user_params)
-	   login(@user) # <-- login the user
-	   redirect_to user_path 
+	   login(@user)
+	    
+	   redirect_to user_path(@user) 
 	
 	end
 
