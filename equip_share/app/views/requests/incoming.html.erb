@@ -1,0 +1,27 @@
+<%= link_to "Back", user_path, class: "btn btn-primary"%>
+
+	
+		<h1>Incoming Requests</h1>
+		<% @incoming.each do |f| %>
+			<h4><%= f.item.name %>
+				
+			</h4>
+			<h4>Start date: <%= f.start_date.strftime('%A, %B %d, %Y') %></h4>
+			<h4>End date: <%= f.end_date.strftime('%A, %B %d, %Y') %></h4>
+
+			<h4> Borrower ID: <%= f.borrower_id %></h4>
+			<h4> Item ID:<%= f.item_id %></h4>
+		<% end %><br>
+
+	
+		<h1>Outgoing Requests</h1>
+
+		<% @outgoing.each do |f|%>
+			<div>
+			<h4>Start date: <%= f.start_date.strftime('%A, %B %d, %Y') %></h4>
+			<h4>End date: <%= f.end_date.strftime('%A, %B %d, %Y') %></h4>
+
+			<h4> Owner ID: <%= f.user_id %></h4>
+			<h4> Item ID:<%= f.item_id %></h4>
+			</div>
+		<% end %>

@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   patch '/items/:id', to: 'items#update'
   delete '/items/:id', to: 'items#destroy'
 
-  get '/items/:id/requests/new', to: 'requests#new', as: 'new_request'
-  post '/requests', to: 'requests#create'
+  resources :items do
+    resources :requests
+  end
+  get '/users/:id/requests', to: 'requests#incoming', as: 'request_incoming'
+  get '/users/:id/requests', to: 'requests#outgoing', as: 'request_outgoing'
+
 end
