@@ -1,7 +1,8 @@
 <h1>Request Form</h1>
 
+<h3><%= @item.name %></h3>
 
-<%=form_for @request do |f| %>
+<%=form_for @request, url: item_requests_path, method: "post" do |f| %>
   <%= f.date_field :start_date %>
   <%= f.date_field :end_date %>
   <%= f.submit "Submit Request" %>
