@@ -5,8 +5,11 @@
 		<% @incoming_requests.each do |req| %>
 			<%= @request %>
 			<h4>Date: <%= req.date.strftime('%A, %B %d, %Y') %></h4>
-			<h4> Borrower ID: <%= req.borrower.first_name %> </h4>
-			<h4> Item:<%= req.item.name %> </h4>
+			<h4> Borrower: <%= req.borrower.first_name.capitalize %> </h4>
+			<h4> Item: <%= req.item.name %> </h4><a href=""><h4><%= mail_to req.borrower.email, "Email Borrower", subject: "Hi from EquipShare!" %></h4></a>
+
+
+			<br>
 			
 
 			<% end %> 
@@ -16,7 +19,9 @@
 
 		<% @outgoing_requests.each do |req| %>
 				<h4>Date: <%= req.date.strftime('%A, %B %d, %Y') %></h4>
-				<h4> Owner: <%= req.owner.first_name %> </h4>
-				<h4> Item ID:<%= req.item.name %> </h4>
+				<h4> Owner: <%= req.owner.first_name.capitalize %> </h4>
+				<h4> Item: <%= req.item.name %> </h4>
+				<a href=""><h4><%= mail_to req.owner.email, "Email Owner", subject: "Hi from EquipShare!" %></h4></a>
+				<br>
 			
 		<% end %>
