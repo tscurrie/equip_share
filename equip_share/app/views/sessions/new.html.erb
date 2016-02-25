@@ -1,4 +1,5 @@
-Login
+<div class="container">
+<h1>Login</h1>
 
 <%= form_for @user, url: "/sessions", method: "post" do |f| %>
   <div>
@@ -9,3 +10,4 @@ Login
   </div>
   <%= f.submit "Sign In" %>
 <% end %>
+</div>
