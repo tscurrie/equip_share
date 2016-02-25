@@ -4,7 +4,7 @@
 		<h1>Incoming Requests</h1>
 		<% @incoming_requests.each do |req| %>
 			<%= @request %>
-			<h4>Date: <%= req.date.strftime("%m/%d/%Y") %></h4>
+			<h4>Date: <%= req.date %></h4>
 			<h4> Borrower ID: <%= req.borrower.first_name %> </h4>
 			<h4> Item:<%= req.item.name %> </h4>
 			

@@ -22,7 +22,6 @@ class RequestsController < ApplicationController
 
 	def incoming
 		@user = User.find(params[:id])
-		@item = Item.find(params[:id])
 		@incoming_requests = Request.where(user_id: @user).order('updated_at DESC')
 
 		# get the item object from the item id assoc. with @incoming
