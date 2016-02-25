@@ -2,21 +2,21 @@
 		
 	<%= Time.now.strftime("%m/%d/%Y") %>
 		<h1>Incoming Requests</h1>
-		<% @incoming.order('updated_at DESC').each do |f| %>
+		<% @incoming_requests.each do |req| %>
 			<%= @request %>
-			<h4>Date: <%= f.date.strftime("%m/%d/%Y") %></h4>
-			<h4> Borrower ID: <%= f.borrower_id %> </h4>
-			<h4> Item ID:<%= f.item_id %> </h4>
-			<h4> Item: <%= @item.name %> </h4>
+			<h4>Date: <%= req.date.strftime("%m/%d/%Y") %></h4>
+			<h4> Borrower ID: <%= req.borrower.first_name %> </h4>
+			<h4> Item:<%= req.item.name %> </h4>
+			
 
 			<% end %> 
 		<br>
 
 		<h1>Outgoing Requests</h1>
 
-		<% @outgoing.each do |f| %>
-				<h4>Date: <%= f.date %></h4>
-				<h4> Owner ID: <%= f.user_id %> </h4>
-				<h4> Item ID:<%= f.item_id %> </h4>
+		<% @outgoing_requests.each do |req| %>
+				<h4>Date: <%= req.date %></h4>
+				<h4> Owner: <%= req.owner.first_name %> </h4>
+				<h4> Item ID:<%= req.item.name %> </h4>
 			
 		<% end %>
