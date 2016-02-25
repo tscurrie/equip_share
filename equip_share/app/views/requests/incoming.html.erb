@@ -1,10 +1,10 @@
 <%= link_to "Back", user_path, class: "btn btn-primary"%>
 		
-	<%= Time.now.strftime("%m/%d/%Y") %>
+	
 		<h1>Incoming Requests</h1>
 		<% @incoming_requests.each do |req| %>
 			<%= @request %>
-			<h4>Date: <%= req.date %></h4>
+			<h4>Date: <%= req.date.strftime('%A, %B %d, %Y') %></h4>
 			<h4> Borrower ID: <%= req.borrower.first_name %> </h4>
 			<h4> Item:<%= req.item.name %> </h4>
 			
@@ -15,7 +15,7 @@
 		<h1>Outgoing Requests</h1>
 
 		<% @outgoing_requests.each do |req| %>
-				<h4>Date: <%= req.date %></h4>
+				<h4>Date: <%= req.date.strftime('%A, %B %d, %Y') %></h4>
 				<h4> Owner: <%= req.owner.first_name %> </h4>
 				<h4> Item ID:<%= req.item.name %> </h4>
 			

@@ -14,3 +14,10 @@
  *= require_tree .
  *= require_self
  */
+
+ .jumbotron {
+ 	background-image: image-url ('garage.jpg');
+ 	background-repeat: no-repeat;
+ 	height: 450px;
+ 	background-size: cover;
+ }
