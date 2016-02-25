@@ -38,6 +38,7 @@ class UsersController < ApplicationController
 		user_params = params.require(:user).permit(:first_name, :last_name, :email)	
 		user.update_attributes(user_params)
 		redirect_to user_path(user)	
+	
 	end
 
 end

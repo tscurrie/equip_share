@@ -1,32 +1,33 @@
-<div>
-	<h1>Welcome, <%= @user.first_name%>!</h1>
+<div class="container">
+	<h1>Welcome, <%= @user.first_name.capitalize %>!</h1>
 </div>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-4">
-			<div>
-				<%= link_to "Incoming Request", request_incoming_path, class: "btn btn-primary"%>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div>
+					<%= link_to "My Requests", request_incoming_path, class: "btn btn-primary"%>
+				</div>
+				<br>
+				<div>
+					<%= link_to "Edit Profile", edit_user_path, class: "btn btn-primary"%>
+				</div>
+				
 			</div>
-			<div>
-				<%= link_to "Outgoing Request", request_incoming_path, class: "btn btn-primary"%>
-			</div>	
-		</div>
-		<div class="col-md-4">
-			<div>
-				<%= link_to "Edit Profile", edit_user_path, class: "btn btn-primary"%>
+			<div class="col-md-4">
 			</div>
-		</div>
-		<div class="col-md-4">
-			<div>
-				<%= link_to "Rent items", items_path, class: "btn btn-primary"%>
+			<div class="col-md-4">
+				<div>
+					<%= link_to "Rent items", items_path, class: "btn btn-primary"%>
+				</div>
+				<br>
+				<div>
+					<%= link_to "Go to My Items", user_items_path, class: "btn btn-primary"%>
+				</div>
+				
 			</div>
-			<div>
-				<%= link_to "Go to My Items", user_items_path, class: "btn btn-primary"%>
-			</div>
-		</div>
 
+			
+		</div>
 		
 	</div>
-	
-</div>

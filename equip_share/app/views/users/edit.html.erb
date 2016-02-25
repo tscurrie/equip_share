@@ -1,22 +1,27 @@
-Edit Profile
+<div class="container">
+<h2>Edit Profile</h2>
 
-    
-
+  
     <%= form_for @user do |f| %>
       <div>
 
-        <%= f.text_field :first_name, placeholder: "First Name" %>
-
+        <p>First name</p> <%= f.text_field :first_name,  placeholder: "First Name" %>
       </div>
+      <br>
       <div>
-        <%= f.text_field :last_name, placeholder: "Last Name" %>
+        <p>Last name</p> <%= f.text_field :last_name, placeholder: "Last Name" %>
       </div>
+      <br>
       <div>
-        <%= f.text_field :email, placeholder: "Email" %>
+        <p>Email</p> <%= f.text_field :email, placeholder: "Email" %>
       </div>
-     
-      <%= f.submit "Save" %>
+ 
+     <br>
+      <%= f.submit "Save", class: "btn btn-success" %>
     <% end %>
+    
+    <br>
   <%= link_to "Back", user_path, class: "btn btn-primary"%>
+  </div>
   
   
