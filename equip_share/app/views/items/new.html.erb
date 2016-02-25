@@ -1,7 +1,8 @@
 Let's add a new item!
-<%= form_for @item do |f| %>
+<%= form_for @item, html: { multipart:true } do |f| %>
   <%= f.text_field :name %>
   <%= f.text_area :description %>
+
   <%= f.submit "Add Item" %>
 <% end %>
 <%= link_to "Back", user_items_path, class: "btn btn-primary"%>

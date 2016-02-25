@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	# has_secure_password
+	has_secure_password
 	has_many :items, :dependent => :delete_all
 	has_many :requests, through: :items
 
