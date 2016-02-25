@@ -13,6 +13,10 @@ Html
 
 css
 
+postgresql
+
+RESTful routes
+
 ###Installation Guide
 bundle install
 
