@@ -1,11 +1,11 @@
 <div class="container">
 <h2>Edit Profile</h2>
 
-    
+  
     <%= form_for @user do |f| %>
       <div>
 
-        <p>First name</p> <%= f.text_field :first_name, placeholder: "First Name" %>
+        <p>First name</p> <%= f.text_field :first_name,  placeholder: "First Name" %>
       </div>
       <br>
       <div>
@@ -15,9 +15,11 @@
       <div>
         <p>Email</p> <%= f.text_field :email, placeholder: "Email" %>
       </div>
+ 
      <br>
       <%= f.submit "Save", class: "btn btn-success" %>
     <% end %>
+    
     <br>
   <%= link_to "Back", user_path, class: "btn btn-primary"%>
   </div>
