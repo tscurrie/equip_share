@@ -1,8 +1,16 @@
-Let's add a new item!
-<%= form_for @item, html: { multipart:true } do |f| %>
-  <%= f.text_field :name %>
-  <%= f.text_area :description %>
+<div class="container">
+	<form>
+		<div class="form-group">
+			<h2>Let's add a new item!</h2>
+			<%= form_for @item do |f| %>
+			  <%= f.text_field :name, class: "form-control", placeholder: "Item name" %>
+			  <br>
+			  <%= f.text_area :description, class: "form-control", placeholder: "Item description" %>
 
-  <%= f.submit "Add Item" %>
-<% end %>
-<%= link_to "Back", user_items_path, class: "btn btn-primary"%>
+			  <br>
+			  <%= f.submit "Add Item", class: "btn btn-success"%>
+			<% end %>
+			<%= link_to "Back", user_items_path, class: "btn btn-primary"%>
+		</div>
+	</form>
+</div>

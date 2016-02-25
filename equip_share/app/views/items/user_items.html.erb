@@ -1,15 +1,16 @@
+<div class="container">
+	<%= link_to "Back", user_path, class: "btn btn-primary"%>
 
-<%= link_to "Back", user_path, class: "btn btn-primary"%>
+	<%= link_to "Add Item", add_item_path, class: "btn btn-primary"%>
+	<% @items.each do |item|%>
+		
 
-<%= link_to "Add Item", add_item_path, class: "btn btn-primary"%>
-<% @items.each do |item|%>
-	
+		<div>
+		  <h3><%= item.name.capitalize %></h3>
+		</div>
+		<br>
 
-	<div>
-	  <h3><%= item.name %></h3>
-	</div>
-	<br>
-
-<%= link_to "Edit", edit_item_path(item), class: "btn btn-primary"%>
-<%= button_to "Delete", item, method: :delete %>
-<% end %>
+	<%= link_to "Edit", edit_item_path(item), class: "btn btn-primary"%>
+	<%= button_to "Delete", item, method: :delete, class: "btn btn-danger" %>
+	<% end %>
+</div>

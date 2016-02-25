@@ -1,9 +1,10 @@
-Welcome to our items page!
-<% @items.order(:name).each do |item| %>
-  <div>
-    <h3><%= link_to item.name, item_path(item) %></h3>
-  </div>
-  <br>
-<% end %>
-
+<div class="container">
+	<h2>Welcome to our items page!</h2>
+	<% @items.order(:name).each do |item| %>
+	  <div>
+	    <h3><%= link_to item.name.capitalize, item_path(item) %></h3>
+	  </div>
+	  <br>
+	<% end %>
+</div>
  
