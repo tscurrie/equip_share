@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 
 		if current_user.id.to_s == params[:id]
 			@items = current_user.items
-		else
+					else
 			redirect_to items_path
 		end
 	end

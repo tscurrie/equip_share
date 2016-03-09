@@ -1,6 +1,6 @@
 <div class="container">
 	<h3><%= @item.name.capitalize %></h3>
-	<p><%= @item.description %></p>
+	<p><%= @item.description.capitalize %></p>
 
 	<%= link_to "Request Item", new_item_request_path(@item), class: "btn btn-primary"%>
 	<%= link_to "Back", items_path, class: "btn btn-primary"%>
