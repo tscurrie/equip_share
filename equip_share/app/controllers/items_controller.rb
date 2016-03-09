@@ -1,29 +1,29 @@
 class ItemsController < ApplicationController
-	
+
 
 	def index
 		@items = Item.all
 	end
 
 	def user_items
-		
+
 		if current_user.id.to_s == params[:id]
 			@items = current_user.items
-		else 
+		else
 			redirect_to items_path
 		end
 	end
-	
+
 	def new
 		if current_user.id.to_s == params[:id]
 			@item = Item.new
 		else
 			redirect_to items_path
-		end	
+		end
 	end
-	
+
 	def create
-		
+
 		item_params = params.require(:item).permit(:name, :description)
 		item_params[:user_id] = current_user.id
 		item = Item.new(item_params)
