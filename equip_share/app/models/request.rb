@@ -6,4 +6,9 @@ class Request < ActiveRecord::Base
   def user
   	owner
   end
+
+  # validates :date,
+  # presence: true,
+
+
 end

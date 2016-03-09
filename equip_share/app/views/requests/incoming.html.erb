@@ -6,7 +6,7 @@
 		<h4>(For items I own)</h4>
 		<% @incoming_requests.each do |req| %>
 			<%= @request %>
-			<h4>Date: <%= req.date.strftime('%A, %B %d, %Y') %></h4>
+			<h4>Date: <%= req.date.try(:strftime, '%m/%d/%Y') %></h4>
 			<h4> Borrower: <%= req.borrower.first_name.capitalize %> </h4>
 			<h4> Item: <%= req.item.name.capitalize %> </h4><a href=""><h4><%= mail_to req.borrower.email, "Email Borrower", subject: "Hi from EquipShare!" %></h4></a>
 
@@ -23,7 +23,7 @@
 		<h4>(For items I want to borrow)</h4>
 		<br />
 		<% @outgoing_requests.each do |req| %>
-				<h4>Date: <%= req.date.strftime('%A, %B %d, %Y') %></h4>
+				<h4>Date: <%= req.date.try(:strftime, '%m/%d/%Y') %></h4>
 				<h4> Owner: <%= req.owner.first_name.capitalize %> </h4>
 				<h4> Item: <%= req.item.name.capitalize %> </h4>
 				<a href=""><h4><%= mail_to req.owner.email, "Email Owner", subject: "Hi from EquipShare!" %></h4></a>
